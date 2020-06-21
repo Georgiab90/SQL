@@ -1,0 +1,28 @@
+ALTER TABLE employee
+ADD FOREIGN KEY(branch_id)
+REFERENCES branch(branch_id)
+ON DELETE SET NULL;
+
+ALTER TABLE employee
+ADD FOREIGN KEY(super_id)
+REFERENCES employee(emp_id)
+ON DELETE SET NULL;
+
+SELECT * FROM employee
+
+CREATE TABLE client (
+client_id INT PRIMARY KEY,
+client_name VARCHAR(30),
+branch_id INT,
+FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL
+);
+
+SELECT DISTINCT branch_id
+FROM employee;
+
+SELECT AVG(salary)
+FROM employee;
+
+SELECT COUNT(SEX)
+FROM employee
+GROUP BY sex;
